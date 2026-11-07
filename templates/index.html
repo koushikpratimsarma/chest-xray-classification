@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chest X-ray Classification</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Chest X-ray Classification</h1>
+            <p>AI-Based Image Classification System</p>
+        </header>
+
+        <main class="card">
+
+            <h2>Upload Chest X-ray</h2>
+
+            <p class="description">
+                Upload a chest X-ray image to classify it as Normal or Abnormal.
+            </p>
+
+            <form id="uploadForm">
+
+                <input
+                    type="file"
+                    id="imageInput"
+                    name="image"
+                    accept=".jpg,.jpeg,.png"
+                    required
+                >
+
+                <div class="preview-container">
+                    <img id="imagePreview" alt="X-ray preview">
+                </div>
+
+                <button type="submit" id="predictButton">
+                    Analyze Image
+                </button>
+
+            </form>
+
+            <div id="loading" class="hidden">
+                Analyzing image...
+            </div>
+
+            <div id="result" class="hidden">
+                <h3>Prediction Result</h3>
+                <p id="prediction"></p>
+                <p id="score"></p>
+            </div>
+
+            <p id="error" class="error"></p>
+
+        </main>
+
+        <footer>
+            <p>
+                Educational and research prototype only.
+                Not intended for medical diagnosis.
+            </p>
+        </footer>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
